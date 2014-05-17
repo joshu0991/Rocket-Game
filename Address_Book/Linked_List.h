@@ -11,11 +11,21 @@
 class Linked_List_Func
 {
 public:
-	void add_node_end(std::string, std::string, node*);
-	node* add_first(std::string, std::string);
-	void traverse_List(node*);
+	void add_node_end(std::string, std::string, node*); //add first node
+	node* add_first(std::string, std::string);//add nodes after first node
+	void traverse_List(node*);//traverse and print entire list
 };
 
 
 
 #endif /* LINKED_LIST_H_ */
+/*
+ * to do
+ * insert
+ * delete
+ * search
+ * print list to file
+ * read list from file
+ * GUI Q(t)
+ *
+ */
