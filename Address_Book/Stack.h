@@ -12,8 +12,13 @@
 class Stack
 {
 public:
+	Stack();
 	void push(std::string, std::string); //add node to stack with string contact and phone number
-	node pop();//remove last node (LIFO) and return the node so the data get be obtained
+	node pop(node*);//remove last node (LIFO) and return the node so the data get be obtained
+	node get_link(node*);
+	void set_next(node*);
+private:
+	node* top;
 };
 
 
