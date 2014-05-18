@@ -9,6 +9,8 @@
 
 #include "Linked_List.h"
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 //add a node to the end of the list
 void Linked_List_Func::add_node_end(std::string contact, std::string phone, node* root)
 {
@@ -28,6 +30,9 @@ void Linked_List_Func::add_node_end(std::string contact, std::string phone, node
 		current->contact = contact; //set data
 		current->phone = phone;
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 //start the new list
 node* Linked_List_Func::add_first(std::string place, std::string phone)
 {
@@ -38,6 +43,9 @@ node* Linked_List_Func::add_first(std::string place, std::string phone)
 	root->next = 0;
 	return root;
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 //traverse list print data in order it was made
 void Linked_List_Func::traverse_List(node* root)
 {

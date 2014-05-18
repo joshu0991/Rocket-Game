@@ -27,5 +27,8 @@ public:
  * print list to file
  * read list from file
  * GUI Q(t)
+ * make stack
+ * make queue
+ * make binary tree** <-- use to search address book
  *
  */

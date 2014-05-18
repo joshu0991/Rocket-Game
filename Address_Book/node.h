@@ -13,7 +13,7 @@ struct node
 {
 	std::string contact;
 	std::string phone;
-	bool used;
+	bool used; //field I am adding so I can use this to randomly choose my daily schedule while I am on vacation :)
 	node *next;
 };
 

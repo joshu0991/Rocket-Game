@@ -1,0 +1,20 @@
+/*
+ * Queue
+ *
+ *  Created on: May 18, 2014
+ *      Author: josh
+ */
+//Linked QUEUE just for the fun of it! This has no application in the address book.
+
+#ifndef QUEUE_
+#define QUEUE_
+#include "node.h"
+
+class Queue
+{
+	void enque(std::string, std::string); //add node to queue with string contact and phone number
+	node deque(); //remove first node (FIFO) and return the node so the data get be obtained
+};
+
+
+#endif /* QUEUE_ */
