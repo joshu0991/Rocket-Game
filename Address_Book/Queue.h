@@ -1,14 +1,12 @@
 /*
- * Queue
+ * Queue.h
  *
  *  Created on: May 18, 2014
  *      Author: josh
  */
-//Linked QUEUE just for the fun of it! This has no application in the address book.
 
-#ifndef QUEUE_
-#define QUEUE_
-#include "node.h"
+#ifndef QUEUE_H_
+#define QUEUE_H_
 
 class Queue
 {
@@ -17,4 +15,5 @@ class Queue
 };
 
 
-#endif /* QUEUE_ */
+
+#endif /* QUEUE_H_ */
