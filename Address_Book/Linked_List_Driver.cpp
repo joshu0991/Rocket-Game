@@ -7,6 +7,7 @@
 
 #include "Linked_List.h"
 //crappy program to test the linked list
+/*
 int main() {
 	Linked_List_Func ll;
 	node *root;
@@ -44,3 +45,4 @@ int main() {
 
 		}
 }
+*/
