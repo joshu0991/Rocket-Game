@@ -52,5 +52,4 @@ node* Stack::pop()
 	node = top;
 	top = top->next;
 	return node;
-
 }

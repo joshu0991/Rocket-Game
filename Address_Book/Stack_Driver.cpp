@@ -7,7 +7,7 @@
 
 
 #include"Stack.h"
-
+/*
 int main()
 {
 	Stack s;
@@ -18,14 +18,15 @@ int main()
 	std::string op;
 	bool finished = false;
 	while(finished == false){
+	std::cout << "1) Push 2) Pop " << std::endl;
+	std::getline(std::cin, op);
+
+	if(op == "1")
+	{
 	std::cout << "Enter the contact " << std::endl;
 	std::getline(std::cin, contact);
 	std::cout << "Enter the phone " << std::endl;
 	std::getline(std::cin, phone);
-	std::cout << "1) Push 2) Pop " << std::endl;
-	std::getline(std::cin, op);
-	if(op == "1")
-	{
 	s.push(contact, phone);
 	}else{
 	poped = s.pop();
@@ -35,3 +36,4 @@ int main()
 	}
 	return 0;
 }
+*/
