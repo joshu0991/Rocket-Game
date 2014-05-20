@@ -8,6 +8,7 @@
 
 #include "Queue.h"
 using namespace std;
+/*
 int main()
 {
 	Queue q;
@@ -36,6 +37,7 @@ int main()
 	}
 
 }
+
 /*
  * Todo
  * Deal with deque from enpty queue
