@@ -25,6 +25,7 @@ int main()
 		 cout << "2) Delete a contact " << endl;
 		 cout << "3) Build a Daily Schedule " << endl;
 		 cout << "4) Print out all contents " << endl;
+
 		 getline(cin, ops);
 		 stringstream(ops) >> op;
 	switch(op)
