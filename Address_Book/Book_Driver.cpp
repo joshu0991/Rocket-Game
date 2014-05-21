@@ -39,10 +39,13 @@ int main()
 		getline(cin, phone);
 		b.add_contact(contact, phone, l);
 	}
-		break;
+	break;
 	case 2:
-
-
+	{
+		cout << "Enter the contact name to delete" << endl;
+		getline(cin, contact);
+		b.delete_contact(contact, l);
+	}
 	break;
 
 	case 3:

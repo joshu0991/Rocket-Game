@@ -11,9 +11,14 @@
 class Linked_List_Func
 {
 public:
-	void add_node_end(std::string, std::string, node*); //add first node
-	node* add_first(std::string, std::string);//add nodes after first node
-	void traverse_List(node*);//traverse and print entire list
+	void add_node_end(std::string , std::string); //add first node
+	void add_first(std::string, std::string);//add nodes after first node
+	void traverse_List();//traverse and print entire list
+	void delete_node(std::string data);
+	void set_root(node* root);
+	node* get_root();
+private:
+	node* root;
 };
 
 

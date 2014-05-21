@@ -12,7 +12,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //add a node to the end of the list
-void Linked_List_Func::add_node_end(std::string contact, std::string phone, node* root)
+void Linked_List_Func::add_node_end(std::string contact, std::string phone)
 {
 	node* current;
 	current = root;//start at the beginning
@@ -34,20 +34,19 @@ void Linked_List_Func::add_node_end(std::string contact, std::string phone, node
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //start the new list
-node* Linked_List_Func::add_first(std::string place, std::string phone)
+void Linked_List_Func::add_first(std::string place, std::string phone)
 {
 	node* root;
 	root = new node;
 	root->contact = place;
 	root->phone = phone;
 	root->next = 0;
-	return root;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //traverse list print data in order it was made
-void Linked_List_Func::traverse_List(node* root)
+void Linked_List_Func::traverse_List()
 {
 
 	node* current = root;
@@ -61,4 +60,50 @@ void Linked_List_Func::traverse_List(node* root)
 	std::cout << "Contact " + current->contact << std::endl;//print the last node
 	std::cout << "Phone " + current->phone << std::endl;
 
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Linked_List_Func::delete_node(std::string cont)
+{
+	node* temp;
+	node* current = root;
+	bool first = true;
+	while (current->next != 0) {
+		if (current->contact == cont && first == true) {
+			root = current->next;
+			first = false;
+			break;
+		} else if (current->contact == cont)
+		{
+			first = false;
+			temp->next = current->next;
+			break;
+		}else if(current->contact == cont && current->next == 0)
+		{
+			temp->next = 0;
+			first = false;
+			break;
+		}
+		else{
+			temp = current;
+			current = current->next;
+			continue;
+		}
+	}
+
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Linked_List_Func::set_root(node* root_var)
+{
+	root = root_var;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+node* Linked_List_Func::get_root()
+{
+	return root;
 }
