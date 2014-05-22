@@ -36,7 +36,6 @@ void Linked_List_Func::add_node_end(std::string contact, std::string phone)
 //start the new list
 void Linked_List_Func::add_first(std::string place, std::string phone)
 {
-	node* root;
 	root = new node;
 	root->contact = place;
 	root->phone = phone;
@@ -68,21 +67,19 @@ void Linked_List_Func::delete_node(std::string cont)
 {
 	node* temp;
 	node* current = root;
-	bool first = true;
 	while (current->next != 0) {
-		if (current->contact == cont && first == true) {
-			root = current->next;
-			first = false;
+		if (root->contact == cont) {
+			current = current->next;
+			root = current;
 			break;
 		} else if (current->contact == cont)
 		{
-			first = false;
-			temp->next = current->next;
+			current = current->next;
+			temp->next = current;
 			break;
 		}else if(current->contact == cont && current->next == 0)
 		{
 			temp->next = 0;
-			first = false;
 			break;
 		}
 		else{
