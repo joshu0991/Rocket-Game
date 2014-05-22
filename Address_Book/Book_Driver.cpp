@@ -8,10 +8,12 @@
 #include "Addr_Book.h"
 #include <sstream>
 using namespace std;
+
 int main()
 {
 	string contact;
 	string ops;
+	string del_val;
 	int op;
 	string phone;
 	Linked_List_Func* l = new Linked_List_Func();
@@ -43,8 +45,8 @@ int main()
 	case 2:
 	{
 		cout << "Enter the contact name to delete" << endl;
-		getline(cin, contact);
-		b.delete_contact(contact, l);
+		getline(cin, del_val);
+		b.delete_contact(del_val, l);
 	}
 	break;
 
@@ -59,5 +61,6 @@ int main()
 	}
 	}
 }
+
 
 

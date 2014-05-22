@@ -50,6 +50,12 @@ void Linked_List_Func::traverse_List()
 
 	node* current = root;
 
+	if(root == 0)
+	{
+		std::cout << "Nothing to Print" << std::endl;
+	}else{
+
+
 	while(current->next != 0)
 	{
 		std::cout << "Contact " + current->contact << std::endl;
@@ -58,7 +64,7 @@ void Linked_List_Func::traverse_List()
 	}
 	std::cout << "Contact " + current->contact << std::endl;//print the last node
 	std::cout << "Phone " + current->phone << std::endl;
-
+	}
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,7 +73,7 @@ void Linked_List_Func::delete_node(std::string cont)
 {
 	node* temp;
 	node* current = root;
-	while (current->next != 0) {
+	while (current != 0) {
 		if (root->contact == cont) {
 			current = current->next;
 			root = current;
@@ -79,7 +85,8 @@ void Linked_List_Func::delete_node(std::string cont)
 			break;
 		}else if(current->contact == cont && current->next == 0)
 		{
-			temp->next = 0;
+			current = temp;
+			current->next = 0;
 			break;
 		}
 		else{

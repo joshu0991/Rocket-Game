@@ -45,28 +45,5 @@ void Addr_Book::print_list_to_screen(Linked_List_Func *l)
 
 //Doesn't work after I changed the set up
 void Addr_Book::delete_contact(string cont_name, Linked_List_Func *l) {
-	node* temp;
-	node* current = l->get_root();
-	bool first = true;
-	while (current->next != 0) {
-		if (current->contact == cont_name && first == true) {
-			//root = current->next;
-			first = false;
-			break;
-		} else if (current->contact == cont_name)
-		{
-			first = false;
-			temp->next = current->next;
-			break;
-		}else if(current->contact == cont_name && current->next == 0)
-		{
-			temp->next = 0;
-			first = false;
-			break;
-		}
-		else{
-			temp = current;
-			current = current->next;
-		}
-	}
+	l->delete_node(cont_name);
 }
