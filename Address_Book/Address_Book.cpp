@@ -42,15 +42,46 @@ void Addr_Book::print_list_to_screen(Linked_List_Func *l)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-//Doesn't work after I changed the set up
 void Addr_Book::delete_contact(string cont_name, Linked_List_Func *l) {
 	l->delete_node(cont_name);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void Addr_Book::print_list_to_file()
+void Addr_Book::print_list_to_file(Linked_List_Func *l)
 {
+	node* n = l->get_root();
+	ofstream fh("Address_Book.bin", ios::out | ios::binary);
+	if(fh.is_open()){
+	while(n!= 0)
+	{
+		std::cout << "Printing " + n->contact  << std::endl;
+ 		std::string contact = n->contact + "*";
+		std::string phone = n->phone + "*";
+		fh.write(contact.c_str(), contact.size());
+		fh.write(phone.c_str(),  phone.size());
+		n = n->next;
+	}
+	fh.close();
+	}else{
+		std::cout << "Cannot open file " << std::endl;
+	}
+	load_list_into_Memory(l);
+}
+
+std::string Addr_Book::load_list_into_Memory(Linked_List_Func *l)
+{
+	std::string data;
+	ifstream ifh("Address_Book.bin", ios::in | ios::binary);
+	if(ifh.is_open())
+	{
+		while(!ifh.eof())
+		{
+			data.append(1, ifh.get());
+			std::cout << data <<std::endl;
+		}
+		ifh.close();
+	}
+	return data;
 
 }

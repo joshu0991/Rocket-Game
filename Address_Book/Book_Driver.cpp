@@ -25,7 +25,7 @@ int main()
 		 cout << "What would you like to do? " << endl;
 		 cout << "1) Add a new contact" << endl;
 		 cout << "2) Delete a contact " << endl;
-		 cout << "3) Build a Daily Schedule " << endl;
+		 cout << "3) Build a Daily Schedule (currently print list to file) " << endl;
 		 cout << "4) Print out all contents " << endl;
 
 		 getline(cin, ops);
@@ -51,8 +51,7 @@ int main()
 	break;
 
 	case 3:
-
-
+		b.print_list_to_file(l);
 	break;
 
 	case 4:

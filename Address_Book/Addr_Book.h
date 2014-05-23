@@ -10,17 +10,19 @@
 #include "node.h"
 #include "Linked_List.h"
 #include <fstream>
-class Addr_Book
+#include "Linked_List.h"
+class Addr_Book : public Linked_List_Func //the idea to inherit the class came as an after thought :( putting it here to remind myself for next time.
 {
 public:
 	Addr_Book();
 	void add_contact(std::string, std::string, Linked_List_Func *l); //Just want to pass around an a ptr to something in the heap :)
 	void delete_contact(std::string contact, Linked_List_Func *l);
 	void build_schedule();
-	void print_list_to_file();
-	void load_list_into_Memory();
+	void print_list_to_file(Linked_List_Func *l);
+	std::string load_list_into_Memory(Linked_List_Func *l);
 	void print_list_to_screen(Linked_List_Func *l);
-private:
+	void construct_list(Linked_List_Func *l);
+
 };
 
 
