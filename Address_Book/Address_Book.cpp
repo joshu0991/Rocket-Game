@@ -47,3 +47,10 @@ void Addr_Book::print_list_to_screen(Linked_List_Func *l)
 void Addr_Book::delete_contact(string cont_name, Linked_List_Func *l) {
 	l->delete_node(cont_name);
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Addr_Book::print_list_to_file()
+{
+
+}

@@ -9,6 +9,7 @@
 #define ADDR_BOOK_H_
 #include "node.h"
 #include "Linked_List.h"
+#include <fstream>
 class Addr_Book
 {
 public:
