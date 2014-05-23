@@ -51,7 +51,7 @@ void Addr_Book::delete_contact(string cont_name, Linked_List_Func *l) {
 void Addr_Book::print_list_to_file(Linked_List_Func *l)
 {
 	node* n = l->get_root();
-	ofstream fh("Address_Book.bin", ios::out | ios::binary);
+	ofstream fh("Address_Book.dat", ios::out | ios::binary);
 	if(fh.is_open()){
 	while(n!= 0)
 	{
@@ -72,7 +72,7 @@ void Addr_Book::print_list_to_file(Linked_List_Func *l)
 std::string Addr_Book::load_list_into_Memory(Linked_List_Func *l)
 {
 	std::string data;
-	ifstream ifh("Address_Book.bin", ios::in | ios::binary);
+	ifstream ifh("Address_Book.dat", ios::in | ios::binary);
 	if(ifh.is_open())
 	{
 		while(!ifh.eof())
