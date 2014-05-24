@@ -18,12 +18,10 @@ public:
 	void delete_node(std::string data);
 	void set_root(node* root);
 	node* get_root();
+	bool check_root();
 private:
 	node* root;
 };
-
-
-
 #endif /* LINKED_LIST_H_ */
 /*
  * to do
@@ -32,7 +30,7 @@ private:
  * search
  * print list to file
  * read list from file
- * GUI Q(t)
+ * GUI GTK
  * make stack
  * make queue
  * make binary tree** <-- use to search address book

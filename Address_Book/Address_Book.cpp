@@ -66,43 +66,54 @@ void Addr_Book::print_list_to_file(Linked_List_Func *l)
 	}else{
 		std::cout << "Cannot open file " << std::endl;
 	}
+	l->set_root(0); //delete the list
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-std::string Addr_Book::load_list_into_Memory(Linked_List_Func *l)
+void Addr_Book::load_list_into_Memory(Linked_List_Func *l)
 {
-	std::string data;
+	std::string str;
 	ifstream ifh("Address_Book.dat", ios::in | ios::binary);
 	if(ifh.is_open())
 	{
 		while(!ifh.eof())
 		{
-			data.append(1, ifh.get());
-			std::cout << data <<std::endl;
+			str.append(1, ifh.get());
 		}
 		ifh.close();
 	}
-	return data;
 
+	data = str;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //finish this method
-void Addr_Book::construct_list(Linked_List_Func *l, std::string data)
-{
-		std::stringstream ss;
-		for(int i = 0; i < data.length(); i++)
-		{
-
-
-		if(data)
-		{
-			char a = data[i];
-		}}
-		if(l->root == 0)
-		{
-		//	l->add_first(contact, phone);
+void Addr_Book::construct_list(Linked_List_Func *l) {
+	int cof = 0;
+	std::string contact = "";
+	std::string phone = "";
+	for (int i = 0; i < data.length(); i++) {
+		char a = data[i];
+		if (a != '*' && cof == 0) {
+			contact += a;
+		} else if (a == '*' && cof == 0) {
+			cof++;
+		} else if (a != '*' && cof == 1) {
+			phone += a;
+		} else if (a == '*' && cof == 1) {
+			if (l->check_root()) {
+				l->add_first(contact, phone);
+				contact = "";
+				phone = "";
+			} else {
+				l->add_node_end(contact, phone);
+				contact = "";
+				phone = "";
+			}
+			cof--;
 		}
+
+	}
 
 }
