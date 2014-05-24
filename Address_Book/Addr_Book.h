@@ -21,7 +21,7 @@ public:
 	void print_list_to_file(Linked_List_Func *l);
 	std::string load_list_into_Memory(Linked_List_Func *l);
 	void print_list_to_screen(Linked_List_Func *l);
-	void construct_list(Linked_List_Func *l);
+	void construct_list(Linked_List_Func *l, std::string);
 
 };
 

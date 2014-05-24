@@ -66,8 +66,9 @@ void Addr_Book::print_list_to_file(Linked_List_Func *l)
 	}else{
 		std::cout << "Cannot open file " << std::endl;
 	}
-	load_list_into_Memory(l);
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 std::string Addr_Book::load_list_into_Memory(Linked_List_Func *l)
 {
@@ -83,5 +84,25 @@ std::string Addr_Book::load_list_into_Memory(Linked_List_Func *l)
 		ifh.close();
 	}
 	return data;
+
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//finish this method
+void Addr_Book::construct_list(Linked_List_Func *l, std::string data)
+{
+		std::stringstream ss;
+		for(int i = 0; i < data.length(); i++)
+		{
+
+
+		if(data)
+		{
+			char a = data[i];
+		}}
+		if(l->root == 0)
+		{
+		//	l->add_first(contact, phone);
+		}
 
 }

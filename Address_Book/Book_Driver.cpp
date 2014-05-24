@@ -52,6 +52,7 @@ int main()
 
 	case 3:
 		b.print_list_to_file(l);
+		b.load_list_into_Memory(l);
 	break;
 
 	case 4:
