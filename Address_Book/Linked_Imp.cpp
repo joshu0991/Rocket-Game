@@ -130,3 +130,23 @@ bool Linked_List_Func::check_root()
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+int Linked_List_Func::calc_size()
+{
+	int size = 0;
+	node * current = 0;
+	current = root;
+	while(current != 0)
+	{
+		current = current->next;
+		size += 1;
+	}
+	return size;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void set_used(bool state, node* current) //set if the node has been used in schedule yet
+{
+	current->used = state;
+}

@@ -7,7 +7,6 @@
 
 #include "Addr_Book.h"
 #include <sstream>
-#include <cstdlib>
 using namespace std;
 
 int main()
@@ -64,7 +63,7 @@ int main()
 	//Build a tentative schedule
 	case 3:
 	{
-		cout << "not started" << endl;
+		b.build_schedule(l);
 	}
 	break;
 

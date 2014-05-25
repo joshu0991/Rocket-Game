@@ -19,6 +19,8 @@ public:
 	void set_root(node* root);
 	node* get_root();
 	bool check_root();
+	int calc_size();
+	void set_used(bool, node*);
 private:
 	node* root;
 };
@@ -26,13 +28,9 @@ private:
 /*
  * to do
  * insert
- * delete
+ * sort
  * search
- * print list to file
- * read list from file
  * GUI GTK
- * make stack
- * make queue
  * make binary tree** <-- use to search address book
- *
+ * when just saving data do not remove all contents from memory
  */

@@ -9,6 +9,7 @@
 
 //#include "Linked_List.h"
 #include "Addr_Book.h"
+
 using namespace std;
 
 
@@ -88,7 +89,7 @@ void Addr_Book::load_list_into_Memory(Linked_List_Func *l)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//finish this method
+
 void Addr_Book::construct_list(Linked_List_Func *l) {
 	int cof = 0;
 	std::string contact = "";
@@ -116,4 +117,32 @@ void Addr_Book::construct_list(Linked_List_Func *l) {
 
 	}
 
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Addr_Book::build_schedule(Linked_List_Func *l)
+{
+	int size = calc_size(l);
+	int rand = gen_number(size);
+	std::cout << "Rand " << rand << " Size " << size << std::endl;
+
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+int Addr_Book::gen_number(int size)
+{
+	int random_num = 0;
+	srand((unsigned)time(0));//seed random number generator
+	random_num = (rand()%size)+1;
+	return random_num;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+int Addr_Book::calc_size(Linked_List_Func *l)
+{
+	int size = l->calc_size();
+	return size;
 }
