@@ -14,7 +14,6 @@ struct bin_node
 	node* right;
 	std::string contact;
 	std::string phone;
-
 };
 
 #endif /* BIN_NODE_H_ */

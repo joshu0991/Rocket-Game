@@ -26,9 +26,8 @@ public:
 	void construct_list(Linked_List_Func *l);
 	int gen_number(int);
 	int calc_size(Linked_List_Func *l);
-
+private:
+	std::string email_addr;
 };
-
-
 
 #endif /* ADDR_BOOK_H_ */
