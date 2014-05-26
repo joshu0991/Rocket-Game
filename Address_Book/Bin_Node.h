@@ -8,14 +8,13 @@
 #ifndef BIN_NODE_H_
 #define BIN_NODE_H_
 
-struct node
+struct bin_node
 {
 	node* left;
 	node* right;
-	int value;
+	std::string contact;
+	std::string phone;
 
 };
-
-
 
 #endif /* BIN_NODE_H_ */

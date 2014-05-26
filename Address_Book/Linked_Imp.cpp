@@ -8,7 +8,7 @@
 
 
 #include "Linked_List.h"
-
+#include <string.h>
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //add a node to the end of the list
@@ -146,7 +146,14 @@ int Linked_List_Func::calc_size()
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void set_used(bool state, node* current) //set if the node has been used in schedule yet
+void Linked_List_Func::set_used(bool state, node* current) //set if the node has been used in schedule yet
 {
 	current->used = state;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Linked_List_Func::set_url(std::string url, node* current )
+{
+	current->url = url;
 }

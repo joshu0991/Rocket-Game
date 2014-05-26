@@ -8,6 +8,7 @@
 #ifndef LINKED_LIST_H_
 #define LINKED_LIST_H_
 #include "node.h"
+#include <string.h>
 class Linked_List_Func
 {
 public:
@@ -21,14 +22,16 @@ public:
 	bool check_root();
 	int calc_size();
 	void set_used(bool, node*);
+	void set_url(std::string, node*);
 private:
 	node* root;
 };
 #endif /* LINKED_LIST_H_ */
 /*
  * to do
- * insert
  * sort
+ * add contact by url
+ * email entire list and single contact
  * search
  * GUI GTK
  * make binary tree** <-- use to search address book

@@ -13,6 +13,7 @@ int main()
 {
 	string contact;
 	string ops;
+	string url;
 	string del_val;
 	int op;
 	string phone;
@@ -35,6 +36,7 @@ int main()
 		 cout << "6) Do not save changes and exit " << endl;
 		 cout << "7) Save changes" << endl;
 		 cout << "8) Reload program" << endl;
+		 cout << "9) Enter contact by URL" << endl;
 		 getline(cin, ops);
 		 stringstream(ops) >> op;
 	switch(op)
@@ -112,7 +114,16 @@ int main()
 		b.construct_list(l);
 		cout << "Loading completed" << endl;
 		}
+	break;
 
+	//entering conntact by url
+	case 9:
+	{
+		cout << "Enter the URL" << endl;
+		getline(cin, url);
+		//add a new node with the entered url need new add method
+	}
+	break;
 	}
 	}
 }
