@@ -65,7 +65,7 @@ void Addr_Book::print_list_to_file(Linked_List_Func *l, bool sav)
 	}else{
 		std::cout << "Cannot open file " << std::endl;
 	}
-	if(sav == true)
+	if(sav == false)
 	{
 	l->set_root(0); //delete the list
 	}

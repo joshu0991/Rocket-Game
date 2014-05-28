@@ -17,7 +17,7 @@ int main()
 	string del_val;
 	int op;
 	string phone;
-	bool sav;
+	bool sav = false;
 	Linked_List_Func* l = new Linked_List_Func();
 
 	Addr_Book b;
@@ -81,7 +81,7 @@ int main()
 	case 5:
 	{
 		cout << "Saving..." << endl;
-		b.print_list_to_file(l);
+		b.print_list_to_file(l, sav);
 		finished = true;
 		cout << "Save was successful" << endl;
 		cout << "Exiting ..." << endl;
@@ -102,8 +102,10 @@ int main()
 	case 7:
 	{
 		cout << "Saving..." << endl;
-		b.print_list_to_file(l);
+		sav = true;
+		b.print_list_to_file(l, sav);
 		cout << "Save was successful" << endl;
+		sav = false;
 	}
 	break;
 
