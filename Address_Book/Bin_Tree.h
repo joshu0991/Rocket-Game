@@ -7,11 +7,14 @@
 
 #ifndef BIN_TREE_H_
 #define BIN_TREE_H_
-
+#include "Bin_Node.h"
 class Bin_Tree
 {
 public:
 
+
+private:
+	bin_node* root;
 
 };
 

@@ -6,8 +6,6 @@
  */
 
 
-
-//#include "Linked_List.h"
 #include "Addr_Book.h"
 
 using namespace std;
@@ -49,7 +47,7 @@ void Addr_Book::delete_contact(string cont_name, Linked_List_Func *l) {
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void Addr_Book::print_list_to_file(Linked_List_Func *l)
+void Addr_Book::print_list_to_file(Linked_List_Func *l, bool sav)
 {
 	node* n = l->get_root();
 	ofstream fh("Address_Book.dat", ios::out | ios::binary);
@@ -67,7 +65,10 @@ void Addr_Book::print_list_to_file(Linked_List_Func *l)
 	}else{
 		std::cout << "Cannot open file " << std::endl;
 	}
+	if(sav == true)
+	{
 	l->set_root(0); //delete the list
+	}
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -149,3 +150,16 @@ int Addr_Book::calc_size(Linked_List_Func *l)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//start a python script that will go to a web page and get phone and contact info
+void Addr_Book::get_info(std::string URL)
+{
+
+	//execute python script
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Addr_Book::email_list(Linked_List_Func *l)
+{
+	//pass list to python program
+}

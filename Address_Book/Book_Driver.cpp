@@ -17,6 +17,7 @@ int main()
 	string del_val;
 	int op;
 	string phone;
+	bool sav;
 	Linked_List_Func* l = new Linked_List_Func();
 
 	Addr_Book b;
