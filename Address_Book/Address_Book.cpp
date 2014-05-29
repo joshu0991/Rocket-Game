@@ -5,7 +5,7 @@
  *      Author: josh
  */
 
-#include "C:\Python34\include\Python.h"
+//#include "C:\Python34\include\Python.h"
 #include "Addr_Book.h"
 
 using namespace std;
@@ -22,13 +22,6 @@ void Addr_Book::add_contact(string contact, string phone, Linked_List_Func *l)
 		}else{
 			l->add_node_end(contact, phone);
 		}
-}
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Addr_Book::Addr_Book()
-{
-
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -95,7 +88,7 @@ void Addr_Book::construct_list(Linked_List_Func *l) {
 	int cof = 0;
 	std::string contact = "";
 	std::string phone = "";
-	for (int i = 0; i < data.length(); i++) {
+	for (unsigned int i = 0; i < data.length(); i++) {
 		char a = data[i];
 		if (a != '*' && cof == 0) {
 			contact += a;

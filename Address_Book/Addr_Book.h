@@ -9,13 +9,13 @@
 #define ADDR_BOOK_H_
 #include "node.h"
 #include "Linked_List.h"
+#include "Bin_Tree.h"
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
-class Addr_Book : public Linked_List_Func //the idea to inherit the class came as an after thought :( putting it here to remind myself for next time.
+class Addr_Book
 {
 public:
-	Addr_Book();
 	std::string data;
 	void add_contact(std::string, std::string, Linked_List_Func *l); //Just want to pass around an a ptr to something in the heap :)
 	void delete_contact(std::string contact, Linked_List_Func *l);

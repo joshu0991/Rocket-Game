@@ -19,7 +19,7 @@ int main()
 	string phone;
 	bool sav = false;
 	Linked_List_Func* l = new Linked_List_Func();
-
+	Bin_Tree *bt = new Bin_Tree();
 	Addr_Book b;
 	bool finished = false;
 	 cout << "loading..." << endl;
@@ -37,7 +37,7 @@ int main()
 		 cout << "6) Do not save changes and exit " << endl;
 		 cout << "7) Save changes" << endl;
 		 cout << "8) Reload program" << endl;
-		 cout << "9) Enter contact by URL" << endl;
+		 cout << "9) Print out number" << endl;
 		 getline(cin, ops);
 		 stringstream(ops) >> op;
 	switch(op)
@@ -122,8 +122,8 @@ int main()
 	//entering conntact by url
 	case 9:
 	{
-		cout << "Enter the URL" << endl;
-		getline(cin, url);
+		//cout << "Enter the URL" << endl;
+		//getline(cin, url);
 		//b.get_info(url);
 		//add a new node with the entered url need new add method
 		//yet to do. Possibly complete with Q(t)
@@ -131,6 +131,8 @@ int main()
 	break;
 	}
 	}
+	delete l;
+	delete bt;
 }
 
 

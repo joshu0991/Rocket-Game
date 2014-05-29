@@ -8,8 +8,8 @@
 #ifndef BIN_NODE_H_
 #define BIN_NODE_H_
 #include<string>
-
-struct bin_node
+#include "Linked_List.h"
+struct bin_node : public Linked_List_Func
 {
 	bin_node* left;
 	bin_node* right;

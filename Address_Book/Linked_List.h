@@ -13,6 +13,7 @@ class Linked_List_Func
 {
 public:
 	Linked_List_Func();
+	~Linked_List_Func();
 	void add_node_end(std::string , std::string); //add first node
 	void add_first(std::string, std::string);//add nodes after first node
 	void traverse_List();//traverse and print entire list
@@ -23,7 +24,7 @@ public:
 	int calc_size();
 	void set_used(bool, node*);
 	void set_url(std::string, node*);
-private:
+protected:
 	node* root;
 };
 #endif /* LINKED_LIST_H_ */
@@ -35,5 +36,4 @@ private:
  * search
  * GUI GTK
  * make binary tree** <-- use to search address book
- * when just saving data do not remove all contents from memory
  */

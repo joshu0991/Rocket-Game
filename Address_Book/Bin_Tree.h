@@ -16,10 +16,10 @@ class Bin_Tree
 {
 public:
 	Bin_Tree();
-	int decide_num(std::string);
+	int decide_num(node* l);
 	void build_tree(Linked_List_Func *l);
 private:
-	bin_node* root;
+	bin_node* b_root;
 
 };
 

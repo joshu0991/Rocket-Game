@@ -157,3 +157,10 @@ void Linked_List_Func::set_url(std::string url, node* current )
 {
 	current->url = url;
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Linked_List_Func::~Linked_List_Func()
+{
+
+}
