@@ -151,15 +151,20 @@ int Addr_Book::calc_size(Linked_List_Func *l)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 //start a python script that will go to a web page and get phone and contact info
+/*
 void Addr_Book::get_info(std::string URL)
 {
-
+	Py_SetProgramName('URL_Builder.py');
+	Py_Initialize();
+	PyRun_SimpleString("from time import time,ctime\n print('Today is',ctime(time())\n)");
+	Py_Finalize();
 	//execute python script
 }
-
+*/
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+/*
 void Addr_Book::email_list(Linked_List_Func *l)
 {
 	//pass list to python program
 }
+*/

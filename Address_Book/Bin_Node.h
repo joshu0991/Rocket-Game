@@ -7,11 +7,12 @@
 
 #ifndef BIN_NODE_H_
 #define BIN_NODE_H_
+#include<string>
 
 struct bin_node
 {
-	node* left;
-	node* right;
+	bin_node* left;
+	bin_node* right;
 	std::string contact;
 	std::string phone;
 };

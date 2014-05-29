@@ -124,7 +124,9 @@ int main()
 	{
 		cout << "Enter the URL" << endl;
 		getline(cin, url);
+		//b.get_info(url);
 		//add a new node with the entered url need new add method
+		//yet to do. Possibly complete with Q(t)
 	}
 	break;
 	}
