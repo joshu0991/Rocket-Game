@@ -132,6 +132,7 @@ int main()
 	break;
 	case 9:
 	{
+		//std::cout << l->get_root()->contact << std::endl;
 		b.search(bt, l);
 	}
 	}

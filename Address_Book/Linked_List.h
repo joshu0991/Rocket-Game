@@ -11,6 +11,7 @@
 #include <string.h>
 class Linked_List_Func
 {
+
 public:
 	Linked_List_Func();
 	~Linked_List_Func();
@@ -26,6 +27,7 @@ public:
 	void set_url(std::string, node*);
 protected:
 	node* root;
+	friend class Bin_Tree;
 };
 #endif /* LINKED_LIST_H_ */
 /*

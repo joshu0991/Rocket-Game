@@ -60,7 +60,7 @@ void Addr_Book::print_list_to_file(Linked_List_Func *l, bool sav)
 	}
 	if(sav == false)
 	{
-	l->~Linked_List_Func(); //explicitly call dest. ... not sure if that is a good thing
+	//l->~Linked_List_Func(); //explicitly call dest. ... not sure if that is a good thing
 	l->set_root(0); //delete the list
 	}
 }
@@ -180,7 +180,7 @@ bool Addr_Book::check_ws(std::string input)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void Addr_Book::search(Bin_Tree* bt, Linked_List_Func *l)
+void Addr_Book::search(Bin_Tree* bt, Linked_List_Func* l)
 {
 	bt->build_tree(l);
 }

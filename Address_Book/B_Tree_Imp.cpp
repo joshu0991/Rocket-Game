@@ -8,6 +8,7 @@
 
 
 #include "Bin_Tree.h"
+#include "Linked_List.h"
 
 //decide where the contact should go on the btree based on abc order and assign a number
 Bin_Tree::Bin_Tree() : b_root(0){}
@@ -25,16 +26,18 @@ int Bin_Tree::decide_num(node* l)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void Bin_Tree::build_tree(Linked_List_Func *l)
+void Bin_Tree::build_tree(Linked_List_Func* l)
 {
 	//std::cout << "Entered Bt" << std::endl;
-	node* current = l->get_root();
-	int position;
+	node* current = l->root;
+	std::string a = current->contact;
+	std::cout << a << std::endl;
+	/*int position;
 	while(current != 0)
 	{
 		position = decide_num(current);
 		std::cout << position << std::endl;
 		current = current->next;
 	}
-
+*/
 }
