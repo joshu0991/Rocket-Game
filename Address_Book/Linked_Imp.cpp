@@ -162,5 +162,14 @@ void Linked_List_Func::set_url(std::string url, node* current )
 
 Linked_List_Func::~Linked_List_Func()
 {
-
+	node* current = root;
+	node* next;
+	while(current != 0 )
+	{
+		next = current->next;
+		delete  current;
+		current = next;
+	}
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
