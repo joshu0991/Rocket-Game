@@ -29,6 +29,7 @@ public:
 	void set_email(std::string email);
 	void get_info(std::string URL);
 	void email_list(Linked_List_Func *l);
+	bool check_ws(std::string);
 private:
 	std::string email_addr;
 };

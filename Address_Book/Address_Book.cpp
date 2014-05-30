@@ -161,3 +161,18 @@ void Addr_Book::email_list(Linked_List_Func *l)
 	//pass list to python program
 }
 */
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+bool Addr_Book::check_ws(std::string input)
+{
+	bool tof = false;
+	int a = input.length() - 1;
+	if(isspace(input[a]) || isspace(input[0]))
+	{
+		tof = true;
+		std::cout << "Whitespace detected Try input again." << std::endl;
+	}
+	return tof;
+
+}

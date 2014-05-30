@@ -16,6 +16,7 @@ int main()
 	string url;
 	string del_val;
 	int op;
+	bool ws;
 	string phone;
 	bool sav = false;
 	Linked_List_Func* l = new Linked_List_Func();
@@ -36,8 +37,7 @@ int main()
 		 cout << "5) Save changes and exit " << endl;
 		 cout << "6) Do not save changes and exit " << endl;
 		 cout << "7) Save changes" << endl;
-		 cout << "8) Reload program" << endl;
-		 cout << "9) Print out number" << endl;
+		 cout << "8) Print out number" << endl;
 		 getline(cin, ops);
 		 stringstream(ops) >> op;
 	switch(op)
@@ -46,12 +46,20 @@ int main()
 	//Add a contact
 	case 1:
 	{
+		ws = true;
+		while(ws == true){
 		cout << "Enter the contact name " << endl;
 		getline(cin, contact);
+		ws = b.check_ws(contact);
+		}
+		ws = true;
+		while(ws == true){
 		cout << "Enter the phone number " << endl;
 		getline(cin, phone);
+		ws = b.check_ws(phone);
+		}
 		b.add_contact(contact, phone, l);
-	}
+		}
 	break;
 
 	//Delete a contact
@@ -112,22 +120,12 @@ int main()
 	//reload the program
 	case 8:
 		{
-		cout << "loading..." << endl;
-		b.load_list_into_Memory(l);
-		b.construct_list(l);
-		cout << "Loading completed" << endl;
+			//cout << "Enter the URL" << endl;
+			//getline(cin, url);
+			//b.get_info(url);
+			//add a new node with the entered url need new add method
+			//yet to do. Possibly complete with Q(t)
 		}
-	break;
-
-	//entering conntact by url
-	case 9:
-	{
-		//cout << "Enter the URL" << endl;
-		//getline(cin, url);
-		//b.get_info(url);
-		//add a new node with the entered url need new add method
-		//yet to do. Possibly complete with Q(t)
-	}
 	break;
 	}
 	}
