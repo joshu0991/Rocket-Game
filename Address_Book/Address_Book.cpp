@@ -60,6 +60,7 @@ void Addr_Book::print_list_to_file(Linked_List_Func *l, bool sav)
 	}
 	if(sav == false)
 	{
+	l->~Linked_List_Func(); //explicitly call dest. ... not sure if that is a good thing
 	l->set_root(0); //delete the list
 	}
 }

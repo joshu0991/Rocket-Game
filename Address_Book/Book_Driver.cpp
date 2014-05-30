@@ -40,6 +40,8 @@ int main()
 		 cout << "8) Print out number" << endl;
 		 getline(cin, ops);
 		 stringstream(ops) >> op;
+if(op < 9 && op > 0)
+{
 	switch(op)
 	{
 
@@ -129,9 +131,9 @@ int main()
 	break;
 	}
 	}
+}
 	delete l;
 	delete bt;
 }
-
 
 
