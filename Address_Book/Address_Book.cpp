@@ -177,3 +177,10 @@ bool Addr_Book::check_ws(std::string input)
 	return tof;
 
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Addr_Book::search(Bin_Tree* bt, Linked_List_Func *l)
+{
+	bt->build_tree(l);
+}

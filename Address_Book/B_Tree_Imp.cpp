@@ -23,8 +23,11 @@ int Bin_Tree::decide_num(node* l)
 		return r_var;
 }
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 void Bin_Tree::build_tree(Linked_List_Func *l)
 {
+	//std::cout << "Entered Bt" << std::endl;
 	node* current = l->get_root();
 	int position;
 	while(current != 0)

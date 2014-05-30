@@ -38,10 +38,11 @@ int main()
 		 cout << "6) Do not save changes and exit " << endl;
 		 cout << "7) Save changes" << endl;
 		 cout << "8) Print out number" << endl;
+		 cout << "9) Temporary search" << endl;
 		 getline(cin, ops);
 		 stringstream(ops) >> op;
-if(op < 9 && op > 0)
-{
+//if(op <= 9 && op > 0)
+//{
 	switch(op)
 	{
 
@@ -129,8 +130,12 @@ if(op < 9 && op > 0)
 			//yet to do. Possibly complete with Q(t)
 		}
 	break;
+	case 9:
+	{
+		b.search(bt, l);
 	}
 	}
+	//}
 }
 	delete l;
 	delete bt;
