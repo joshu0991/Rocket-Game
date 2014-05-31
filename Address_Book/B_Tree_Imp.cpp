@@ -17,9 +17,9 @@ int Bin_Tree::decide_num(node* l)
 {
 		std::string c = l->contact;
 		int r_var = 0;
-		for (unsigned int i = 0; i <= c.length(); i++)
+		for (unsigned int i = 0; i < c.length(); i++)
 		{
-			r_var += c.at(i);
+			r_var += (c.at(i)-'0'); // char 0 is 41 converting to integers
 		}
 		return r_var;
 }
@@ -30,14 +30,13 @@ void Bin_Tree::build_tree(Linked_List_Func* l)
 {
 	//std::cout << "Entered Bt" << std::endl;
 	node* current = l->root;
-	std::string a = current->contact;
-	std::cout << a << std::endl;
-	/*int position;
+	int position;
 	while(current != 0)
 	{
+		std::string a = current->contact;
+		std::cout << a << std::endl;
 		position = decide_num(current);
 		std::cout << position << std::endl;
 		current = current->next;
 	}
-*/
 }
