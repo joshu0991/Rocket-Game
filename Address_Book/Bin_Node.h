@@ -15,6 +15,7 @@ struct bin_node : public Linked_List_Func
 	bin_node* right;
 	std::string contact;
 	std::string phone;
+	int position;
 };
 
 #endif /* BIN_NODE_H_ */
