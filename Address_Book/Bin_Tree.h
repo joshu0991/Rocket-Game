@@ -16,11 +16,11 @@ class Bin_Tree
 {
 public:
 	Bin_Tree();
-	int decide_num(node* l);
 	void build_tree(Linked_List_Func* l);
-	void find_root(bin_node**, int);
 private:
 	bin_node* b_root;
+	int decide_num(node* l);
+	void find_root(bin_node**, int);
 
 };
 
