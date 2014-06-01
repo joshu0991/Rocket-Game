@@ -30,23 +30,25 @@ void Bin_Tree::build_tree(Linked_List_Func* l)
 	//std::cout << "Entered Bt" << std::endl;
 	node* current = l->root;
 	bin_node* node;
-	bin_node* array[l->calc_size()];
+	int size = l->calc_size();
+	bin_node** array = new bin_node*[size];
 	int counter = 0;
 	while(current != 0)
 	{
 		node = new bin_node();
-		std::string a = current->contact;
-		std::cout << a << std::endl;
 		node->position = decide_num(current);
 		node->contact = current->contact;
 		node->phone = current->phone;
-		std::cout << node->position << std::endl;
 		current = current->next;
 		array[counter] = node; //store the address of the node in an array <- find a better way to do this
 		counter++;
-		//find the root
-		//link nodes in some order
 	}
+	find_root(array, size);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Bin_Tree::find_root(bin_node** array, int size)
+{
+	std::cout << "Stubby! " << std::endl;
+}
