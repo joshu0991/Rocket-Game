@@ -131,6 +131,7 @@ bool Linked_List_Func::check_root()
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//calculate size of linked list
 int Linked_List_Func::calc_size()
 {
 	int size = 0;

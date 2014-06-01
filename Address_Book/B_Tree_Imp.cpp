@@ -5,8 +5,6 @@
  *      Author: josh
  */
 
-
-
 #include "Bin_Tree.h"
 #include "Linked_List.h"
 #include "Bin_Node.h"
@@ -32,6 +30,8 @@ void Bin_Tree::build_tree(Linked_List_Func* l)
 	//std::cout << "Entered Bt" << std::endl;
 	node* current = l->root;
 	bin_node* node;
+	bin_node* array[l->calc_size()];
+	int counter = 0;
 	while(current != 0)
 	{
 		node = new bin_node();
@@ -42,9 +42,11 @@ void Bin_Tree::build_tree(Linked_List_Func* l)
 		node->phone = current->phone;
 		std::cout << node->position << std::endl;
 		current = current->next;
+		array[counter] = node; //store the address of the node in an array <- find a better way to do this
+		counter++;
 		//find the root
 		//link nodes in some order
-
-
 	}
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
