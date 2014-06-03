@@ -20,7 +20,9 @@ public:
 private:
 	bin_node* b_root;
 	int decide_num(node* l);
-	void find_root(bin_node**, int);
+	void find_root(bin_node**, int); //not sure if this will get used
+	void Link_Nodes(bin_node** array, int);
+	void insert(int, bin_node*, bin_node*);
 
 };
 

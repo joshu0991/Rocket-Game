@@ -42,25 +42,62 @@ void Bin_Tree::build_tree(Linked_List_Func* l)
 		node->phone = current->phone;
 		current = current->next;
 		array[counter] = node; //store the address of the node in an array <- find a better way to do this
+		b_root = array[0];
+		b_root->left = NULL;
+		b_root->right = NULL;
+		//link nodes and then balance or find root and then build balanced tree?
 		counter++;
 	}
-	find_root(array, size);
+	Link_Nodes(array, size);
 	delete array;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void Bin_Tree::find_root(bin_node** array, int size)
+void Bin_Tree::insert(int pos, bin_node* node, bin_node* leaf)
 {
-	int rootNum = NULL;
-	int spotInArray;
-	int num_array[size];
-	for(int i = 0; i < size; i++)
+	if(pos < node->position)
 	{
+		if(leaf->left != NULL)
+		{
 
-		bin_node* node = array[i];
-		//sort the array
-		int node_num = node->position;
-		std::cout << "Node num " << node_num << std::endl;
+		}
 	}
+	else if(pos > node->position)
+	{
+		if(leaf->right != NULL)
+	}
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Bin_Tree::Link_Nodes(bin_node** array, int size)
+{
+
+	int counter = 1;
+	while(counter < size)
+	{
+		bin_node* n = array[counter];
+		bin_node* leaf = array[0];
+		//handle case if this the root left and right have not been used yet.
+		if(b_root->left == 0 && n->position < b_root->position)
+		{
+			b_root->left = n;
+			counter++;
+		}
+		if(b_root->right == 0 && n->position > b_root->position)
+		{
+			b_root->right = n;
+			counter++;
+		}
+
+		if(b_root->left == 0 && b_root->right == 0)
+		{
+			insert(n->position, n, leaf);
+			counter++;
+		}
+
+	}
+
+
 }
