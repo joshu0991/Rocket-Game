@@ -26,6 +26,7 @@ int main()
 	 cout << "loading..." << endl;
 	 b.load_list_into_Memory(l);
 	 b.construct_list(l);
+	 bt->build_tree(l);
 	 cout << "Loading completed" << endl;
 	while(!finished)
 	{

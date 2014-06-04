@@ -97,13 +97,13 @@ void Bin_Tree::Link_Nodes(bin_node** array, int size)
 		//handles case if this the root left and right have not been used yet.
 		if(b_root->left == 0 && n->position < b_root->position)
 		{
-			std::cout << "Left of root is " << n->contact << std::endl;
+			//std::cout << "Left of root is " << n->contact << std::endl;
 			b_root->left = n;
 			counter++;
 		}
 		else if(b_root->right == 0 && n->position > b_root->position)
 		{
-			std::cout << "Right root is " << n->contact << std::endl;
+			//std::cout << "Right root is " << n->contact << std::endl;
 			b_root->right = n;
 			counter++;
 		}

@@ -182,5 +182,5 @@ bool Addr_Book::check_ws(std::string input)
 
 void Addr_Book::search(Bin_Tree* bt, Linked_List_Func* l)
 {
-	bt->build_tree(l);
+	std::cout << "Stub " << std::endl;
 }

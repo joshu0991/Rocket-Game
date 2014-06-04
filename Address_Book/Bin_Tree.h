@@ -16,6 +16,7 @@ class Bin_Tree
 {
 public:
 	Bin_Tree();
+	//~Bin_Tree();
 	void build_tree(Linked_List_Func* l);
 	void add_node(bin_node* n);
 	void in_order(bin_node*);
