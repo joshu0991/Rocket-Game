@@ -27,7 +27,6 @@ int Bin_Tree::decide_num(node* l)
 
 void Bin_Tree::build_tree(Linked_List_Func* l)
 {
-	//std::cout << "Entered Bt" << std::endl;
 	node* current = l->root;
 	bin_node* node;
 	int size = l->calc_size();
@@ -48,39 +47,36 @@ void Bin_Tree::build_tree(Linked_List_Func* l)
 	b_root = array[0];
 	b_root->left = NULL;
 	b_root->right = NULL;
-	std::cout << " Root is " << b_root->contact << std::endl;
 	Link_Nodes(array, size);
-	//temporary test
-	in_order(b_root);
 	delete array;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//position is nodes sum of characters node is the next node to insert and leaf is
+//initialized as the root and recursivly traverses left or right depending on which way way node
+//needs to be inserted
 void Bin_Tree::insert(int pos, bin_node* node, bin_node* leaf)
 {
-std::cout << "Node pos " << node->position << " Node Contact " << node->contact << " Leaf contact " << leaf->contact << " Leaf pos " << leaf->position << std::endl;
-	if(pos < leaf->position)
+	if(pos < leaf->position) //if the position on the node is less than the position on the leaf go left
 	{
-		if(leaf->left != NULL)
+		if(leaf->left != NULL) //if there is no node on the left
 		{
-			insert(pos, node, leaf->left);
+			insert(pos, node, leaf->left); //recursivly call the insert function to advance the pointer left
 		}
-		else
+		else //add node to the left
 		{
-			std::cout << "New node added on left" << std::endl;
 			leaf->left = node;
 		}
 	}
 	else if(pos > leaf->position)
 	{
-		if(leaf->right != NULL)
+		if(leaf->right != NULL) //if there is a node on the right
 		{
-			insert(pos, node, leaf->right);
+			insert(pos, node, leaf->right); //recursivly call insert function to increase pointer to the right
 		}
-		else
+		else //add node to the right
 		{
-			std::cout << "New node added on right" << std::endl;
 			leaf->right = node;
 		}
 	}
@@ -88,6 +84,7 @@ std::cout << "Node pos " << node->position << " Node Contact " << node->contact 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//link nodes in the array to each other in the appropriate order
 void Bin_Tree::Link_Nodes(bin_node** array, int size)
 {
 
@@ -111,21 +108,56 @@ void Bin_Tree::Link_Nodes(bin_node** array, int size)
 			counter++;
 		}
 		else{
-			insert(n->position, n, leaf);
+			insert(n->position, n, leaf); //starts recursive calling of insert to add node in correct place
 			counter++;
 		}
 	}
 }
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//Traverse the left subtree. Visit the root.Traverse the right subtree.
 void Bin_Tree::in_order(bin_node* n)
 {
-	if(n)
+	if(n)//base case false when node is null
 	{
-		in_order(n->left);
-		std::cout << "Contact " << n->contact << std::endl;
-		in_order(n->right);
+		in_order(n->left); //add insert to system stack until all the way left
+		std::cout << "Contact " << n->contact << std::endl; //once all the way left top is null pointer. top is popped and insert picks up by printing the contact from the node on top (furthest left)
+		in_order(n->right); //pushes right tree until reaches null
 
 	}
 }
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//Traverse the left subtree. Traverse the right subtree. Visit the root.
+void Bin_Tree::post_order(bin_node* n)
+{
+	if(n)//base case false when node is null
+	{
+	post_order(n->left);//add insert to system stack until all the way left
+	post_order(n->right); //pushes right tree until reaches null
+	std::cout << "Contact " << n->contact << std::endl; //after all the left and all the way right prints out contact on top of system stack
+	}
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//Visit the root. Traverse the left subtree. Traverse the right subtree
+void Bin_Tree::pre_order(bin_node* n)
+{
+	if(n) //base case false when node is null
+	{
+		std::cout << n->contact << std::endl; //starts by printing root
+		pre_order(n->left);//add insert to system stack until all the way left printing roots as it goes
+		pre_order(n->right); //add insert to system stack until all the way
+
+	}
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Bin_Tree::add_node(bin_node* n)
+{
+
+}

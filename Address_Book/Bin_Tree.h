@@ -24,7 +24,9 @@ private:
 	void Link_Nodes(bin_node** array, int);
 	void insert(int, bin_node*, bin_node*);
 	void in_order(bin_node*);
-	void post_order();
+	void post_order(bin_node*);
+	void pre_order(bin_node*);
+	void add_node(bin_node* n);
 };
 
 #endif /* BIN_TREE_H_ */
