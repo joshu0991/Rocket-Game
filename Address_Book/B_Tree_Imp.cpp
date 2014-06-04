@@ -48,7 +48,7 @@ void Bin_Tree::build_tree(Linked_List_Func* l)
 	b_root->left = NULL;
 	b_root->right = NULL;
 	Link_Nodes(array, size);
-	delete array;
+	delete [] array;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
