@@ -23,7 +23,8 @@ private:
 	void find_root(bin_node**, int); //not sure if this will get used
 	void Link_Nodes(bin_node** array, int);
 	void insert(int, bin_node*, bin_node*);
-
+	void in_order(bin_node*);
+	void post_order();
 };
 
 #endif /* BIN_TREE_H_ */
