@@ -17,16 +17,16 @@ class Bin_Tree
 public:
 	Bin_Tree();
 	void build_tree(Linked_List_Func* l);
+	void add_node(bin_node* n);
+	void in_order(bin_node*);
+	void post_order(bin_node*);
+	void pre_order(bin_node*);
+	void insert(int, bin_node*, bin_node*);
 private:
 	bin_node* b_root;
 	int decide_num(node* l);
 	void find_root(bin_node**, int); //not sure if this will get used
 	void Link_Nodes(bin_node** array, int);
-	void insert(int, bin_node*, bin_node*);
-	void in_order(bin_node*);
-	void post_order(bin_node*);
-	void pre_order(bin_node*);
-	void add_node(bin_node* n);
 };
 
 #endif /* BIN_TREE_H_ */
