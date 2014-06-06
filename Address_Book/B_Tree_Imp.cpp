@@ -23,7 +23,20 @@ int Bin_Tree::decide_num(node* l)
 		return r_var;
 }
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+int Bin_Tree::decide_bin_node_num(bin_node* n)
+{
+	std::string c = n->contact;
+	int r_var = 0;
+	for (unsigned int i = 0; i < c.length(); i++)
+	{
+		r_var += (c.at(i)-'0'); // char 0 is 41 converting to integers
+	}
+	return r_var;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 void Bin_Tree::build_tree(Linked_List_Func* l)
 {
@@ -174,11 +187,61 @@ Bin_Tree::~Bin_Tree()
 
 void Bin_Tree::delete_in_order(bin_node* n)
 {
-	if(n)
+	if (n)
 	{
-	delete_in_order(n->left);
-	std::cout << "Deleting" << n->contact << std::endl;
-	delete n;
-	delete_in_order(n->right);
+		delete_in_order(n->left);
+		std::cout << "Deleting" << n->contact << std::endl;
+		delete n;
+		delete_in_order(n->right);
 	}
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//start at root
+bin_node* Bin_Tree::search(std::string s)
+{
+	bin_node* n = b_root;
+	bool contin = true;
+	bin_node* ret_node = NULL;
+	while (contin) {
+		if (n->contact == s)
+		{
+			ret_node = n;
+			contin = false;
+		} else if (n->position > decide_string_num(s)) //if what is being looked for is less than the node position move left if not null
+		{
+			if (n->left != NULL)
+			{
+				n = n->left;
+			}
+			else
+			{
+				contin = false;
+				n = NULL;
+			}
+		} else if (n->position < decide_string_num(s)) //if what is being looked for is greater that the node position move right if not null
+		{
+			if (n->right != NULL)
+			{
+				n = n->right;
+			}
+			else
+			{
+				contin = false;
+				n = NULL;
+			}
+		}
+	}
+	return ret_node;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+int Bin_Tree::decide_string_num(std::string s) {
+	int r_var = 0;
+	for (unsigned int i = 0; i < s.length(); i++) {
+		r_var += (s.at(i) - '0'); // char 0 is 41 converting to integers
+	}
+	return r_var;
 }

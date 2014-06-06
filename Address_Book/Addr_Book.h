@@ -30,7 +30,7 @@ public:
 	void get_info(std::string URL);
 	void email_list(Linked_List_Func *l);
 	bool check_ws(std::string);
-	void search(Bin_Tree* bt, Linked_List_Func* l);
+	bool search(Bin_Tree* bt, std::string);
 private:
 	std::string email_addr;
 };

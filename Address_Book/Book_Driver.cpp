@@ -19,6 +19,7 @@ int main()
 	bool ws;
 	string phone;
 	bool sav = false;
+	std::string data;
 	Linked_List_Func* l = new Linked_List_Func();
 	Bin_Tree *bt = new Bin_Tree();
 	Addr_Book b;
@@ -39,7 +40,7 @@ int main()
 		 cout << "6) Do not save changes and exit " << endl;
 		 cout << "7) Save changes" << endl;
 		 cout << "8) Print out number * Not working*" << endl;
-		 cout << "9) Temporary search * Not working*" << endl;
+		 cout << "9) Search book" << endl;
 		 getline(cin, ops);
 		 stringstream(ops) >> op;
 //if(op <= 9 && op > 0)
@@ -131,8 +132,10 @@ int main()
 	break;
 	case 9:
 	{
-		//std::cout << l->get_root()->contact << std::endl;
-		b.search(bt, l);
+		cout << "What would you like to seatch for? " << endl;
+		getline(cin, data);
+		cout << "Searching for " << data << endl;
+		b.search(bt, data);
 	}
 	}
 	//}

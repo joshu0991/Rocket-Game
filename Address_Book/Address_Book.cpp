@@ -180,7 +180,19 @@ bool Addr_Book::check_ws(std::string input)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void Addr_Book::search(Bin_Tree* bt, Linked_List_Func* l)
+bool Addr_Book::search(Bin_Tree* bt, std::string s)
 {
-	std::cout << "Stub " << std::endl;
+	bin_node* n;
+	bool found = false;
+	n = bt->search(s);
+	if(n != NULL)
+	{
+		std::cout << "Found " << n->contact <<std::endl;
+		found = true;
+	}
+	else
+	{
+		std::cout << s << " not found " << std::endl;
+	}
+	return found;
 }
