@@ -1,4 +1,4 @@
-import pygame, sys, Rocket, Player
+import pygame, sys, Rocket, Utility
 from pygame.locals import *
 pygame.init()
 
@@ -14,7 +14,8 @@ def runGame():
     coords = [{'x':startx, 'y':starty}]
     while True:
         for event in pygame.event.get():
-            pass
+            if(event.type == pygame.QUIT):
+                sys.exit()
             # stopped on video 8 https://www.youtube.com/watch?v=VNLLeBVLEoo&index=8&list=PLQVvvaa0QuDcxG_Cajz1JyTH6eAvka93C
 
 size = WIDTH, HEIGHT = 900, 650
@@ -22,8 +23,8 @@ pygame.display.init()
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption('Rocketships!')
 running = True
-#sound = pygame.mixer.Sound('UFO_Takeoff.wav')
-#sound.play()
+sound = pygame.mixer.Sound('UFO_Takeoff.wav')
+sound.play()
 x = 0 
 y = 0
 pixmove = 3
@@ -31,7 +32,7 @@ black = 0,0,0
 movement = 'down'
 rocket = Rocket.Rocket(screen)
 #rocketTwo = Rocket.Rocket(screen)
-player1 = Player.Player()
+util = Utility.Utility()
 fpsTime = pygame.time.Clock()
 while running:
     if movement == 'down':
