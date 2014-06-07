@@ -63,6 +63,7 @@ int main()
 		getline(cin, phone);
 		ws = b.check_ws(phone);
 		}
+		//add to bin tree
 		b.add_contact(contact, phone, l);
 		}
 	break;

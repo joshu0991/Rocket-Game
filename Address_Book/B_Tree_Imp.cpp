@@ -61,7 +61,7 @@ void Bin_Tree::build_tree(Linked_List_Func* l)
 	b_root->left = NULL;
 	b_root->right = NULL;
 	Link_Nodes(array, size);
-	delete [] array;
+	delete[] array;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -93,6 +93,26 @@ void Bin_Tree::insert(int pos, bin_node* node, bin_node* leaf)
 			leaf->right = node;
 		}
 	}
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+bool Bin_Tree::check_insert(bin_node* n)
+{
+	bool in = false;
+	if(b_root->left == 0 && n->position < b_root->position)
+	{
+	//std::cout << "Left of root is " << n->contact << std::endl;
+	b_root->left = n;
+	in = true;
+	}
+	else if(b_root->right == 0 && n->position > b_root->position)
+	{
+	//std::cout << "Right root is " << n->contact << std::endl;
+	b_root->right = n;
+	in = true;
+	}
+	return in;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,10 +190,22 @@ void Bin_Tree::pre_order(bin_node* n)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void Bin_Tree::add_node(Linked_List_Func* l)
+void Bin_Tree::add_node(std::string contact, std::string phone)
 {
-//calculate the position
-
+	//find position
+	int word_size = decide_string_num(contact);
+	bin_node* new_node = new bin_node();
+	if(check_insert(new_node))
+	{
+		std::cout << "Node was entered. " << std::endl;
+	}
+	else
+	{
+	insert(word_size, new_node, b_root);
+	std::cout << "Node was entered. " << std::endl;
+	}
+	//add node in proper place
+	//balance the tree
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -245,3 +277,7 @@ int Bin_Tree::decide_string_num(std::string s) {
 	}
 	return r_var;
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

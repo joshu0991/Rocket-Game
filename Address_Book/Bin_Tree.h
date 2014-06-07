@@ -18,11 +18,12 @@ public:
 	Bin_Tree();
 	~Bin_Tree();
 	void build_tree(Linked_List_Func* l);
-	void add_node(Linked_List_Func* l);
+	void add_node(std::string, std::string);
 	void in_order(bin_node*);
 	void post_order(bin_node*);
 	void pre_order(bin_node*);
 	void insert(int, bin_node*, bin_node*);
+	bool check_insert(bin_node*);
 	bin_node* search(std::string);
 private:
 	bin_node* b_root;
