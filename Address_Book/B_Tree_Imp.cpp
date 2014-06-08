@@ -284,7 +284,9 @@ int Bin_Tree::decide_string_num(std::string s) {
 
 void Bin_Tree::balance_tree(bin_node* n)
 {
-	//calculate size of left sub tree and right subtree
-	//subtract two sizes if == 1 0 -1 is balacned
-	//else balance
+	int r_size = 0;
+	int l_size = 0;
+	bin_node* l = b_root;
+	bin_node* r = b_root;
+
 }
