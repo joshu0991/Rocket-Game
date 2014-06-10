@@ -25,6 +25,7 @@ public:
 	int calc_size();
 	void set_used(bool, node*);
 	void set_url(std::string, node*);
+	static int counter;
 protected:
 	node* root;
 	friend class Bin_Tree;

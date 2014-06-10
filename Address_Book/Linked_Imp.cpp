@@ -6,11 +6,11 @@
  */
 
 
-
 #include "Linked_List.h"
 #include <string.h>
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+//just because I want to see how C++ uses statics.
+int Linked_List_Func::counter = 0;
 //add a node to the end of the list
 void Linked_List_Func::add_node_end(std::string contact, std::string phone)
 {
@@ -20,6 +20,7 @@ void Linked_List_Func::add_node_end(std::string contact, std::string phone)
 		{
 			current = current->next; //check if next is null if it isn't move to next node
 		}
+		Linked_List_Func::counter++;
  		current->next = new node; //make the new node
 		current = current->next; //move to it
 		if(root->next == 0) //Not entirely sure if this is needed
@@ -36,6 +37,7 @@ void Linked_List_Func::add_node_end(std::string contact, std::string phone)
 //start the new list
 void Linked_List_Func::add_first(std::string place, std::string phone)
 {
+	Linked_List_Func::counter++;
 	root = new node;
 	root->contact = place;
 	root->phone = phone;

@@ -34,7 +34,6 @@ private:
 	void delete_in_order(bin_node*);
 	int decide_bin_node_num(bin_node*);
 	int decide_string_num(std::string);
-	void balance_tree(bin_node*);
 };
 
 #endif /* BIN_TREE_H_ */
