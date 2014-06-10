@@ -166,11 +166,11 @@ void Linked_List_Func::set_url(std::string url, node* current )
 //never gets called in Book_Driver... ???
 Linked_List_Func::~Linked_List_Func()
 {
-	std::cout << "Destroyed List" << std::endl;
 	node* current = root;
 	node* next;
 	while(current != 0 )
 	{
+		Linked_List_Func::counter--;
 		next = current->next;
 		delete  current;
 		current = next;
