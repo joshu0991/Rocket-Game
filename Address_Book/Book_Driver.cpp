@@ -63,7 +63,7 @@ int main()
 		getline(cin, phone);
 		ws = b.check_ws(phone);
 		}
-		//add to bin tree
+		bt->add_node(contact, phone);
 		b.add_contact(contact, phone, l);
 		}
 	break;
@@ -73,7 +73,7 @@ int main()
 	{
 		cout << "Enter the contact name to delete" << endl;
 		getline(cin, del_val);
-		b.delete_contact(del_val, l);
+		b.delete_contact(del_val, l, bt);
 	}
 	break;
 

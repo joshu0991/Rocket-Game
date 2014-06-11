@@ -18,7 +18,7 @@ class Addr_Book
 public:
 	std::string data;
 	void add_contact(std::string, std::string, Linked_List_Func *l); //Just want to pass around an a ptr to something in the heap :)
-	void delete_contact(std::string contact, Linked_List_Func *l);
+	void delete_contact(std::string contact, Linked_List_Func *l, Bin_Tree* bt);
 	void build_schedule(Linked_List_Func *l);
 	void print_list_to_file(Linked_List_Func *l, bool);
 	void load_list_into_Memory(Linked_List_Func *l);

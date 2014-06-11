@@ -33,10 +33,9 @@ protected:
 #endif /* LINKED_LIST_H_ */
 /*
  * to do
- * sort
+ * delete leaf
+ * balance tree
  * add contact by url
  * email entire list and single contact
- * search
  * GUI GTK
- * make binary tree** <-- use to search address book
  */

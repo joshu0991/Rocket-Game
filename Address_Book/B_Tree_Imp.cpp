@@ -197,6 +197,10 @@ void Bin_Tree::add_node(std::string contact, std::string phone)
 	//find position
 	int word_size = decide_string_num(contact);
 	bin_node* new_node = new bin_node();
+	new_node->contact = contact;
+	new_node->phone = phone;
+	new_node->left = NULL;
+	new_node->right = NULL;
 	if(check_insert(new_node))
 	{
 		std::cout << "Node was entered. " << std::endl;
@@ -207,7 +211,7 @@ void Bin_Tree::add_node(std::string contact, std::string phone)
 	std::cout << "Node was entered. " << std::endl;
 	}
 	//add node in proper place
-	//balance the tree
+	//balance_tree(b_root);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -238,7 +242,8 @@ bin_node* Bin_Tree::search(std::string s)
 	bin_node* n = b_root;
 	bool contin = true;
 	bin_node* ret_node = NULL;
-	while (contin) {
+	while (contin)
+	{
 		if (n->contact == s)
 		{
 			ret_node = n;
@@ -284,9 +289,69 @@ int Bin_Tree::decide_string_num(std::string s) {
 
 void Bin_Tree::balance_tree(bin_node* n)
 {
-	int r_size = 0;
-	int l_size = 0;
-	bin_node* l = b_root;
-	bin_node* r = b_root;
+	//int r_size = 0;
+	//int l_size = 0;
+	//bin_node* l = b_root;
+	//bin_node* r = b_root;
 
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void Bin_Tree::delete_leaf(std::string s)
+{
+	bin_node* del_node = search(s);
+	if(del_node == NULL)
+	{
+		std::cout << "Cannot delete from tree: value not found" << std::endl;
+	}
+
+	//bin_node* a =  find_previous(s);
+	//balance_tree(b_root);
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+bin_node* Bin_Tree::find_previous(std::string s)
+{
+	bin_node* n = b_root;
+	bool contin = true;
+		//bin_node* ret_node = NULL;
+		bin_node* parent = NULL;
+		while (contin)
+		{
+			if (n->contact == s)
+			{
+				if(parent == NULL)// when value is the root
+				{
+				parent = n;
+				}
+				contin = false;
+			} else if (n->position > decide_string_num(s)) //if what is being looked for is less than the node position move left if not null
+			{
+				if (n->left != NULL)
+				{	parent = n;
+					n = n->left;
+				}
+				else
+				{
+					contin = false;
+					n = NULL;
+				}
+			} else if (n->position < decide_string_num(s)) //if what is being looked for is greater that the node position move right if not null
+			{
+				if (n->right != NULL)
+				{
+					parent = n;
+					n = n->right;
+				}
+				else
+				{
+					contin = false;
+					n = NULL;
+				}
+			}
+		}
+		std::cout << "Parent" << parent->contact <<std::endl;
+		return parent;
 }

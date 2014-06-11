@@ -34,8 +34,10 @@ void Addr_Book::print_list_to_screen(Linked_List_Func *l)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void Addr_Book::delete_contact(string cont_name, Linked_List_Func *l) {
+void Addr_Book::delete_contact(string cont_name, Linked_List_Func *l, Bin_Tree* bt)
+{
 	l->delete_node(cont_name);
+	bt->delete_leaf(cont_name);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
