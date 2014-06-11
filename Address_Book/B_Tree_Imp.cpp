@@ -192,6 +192,7 @@ void Bin_Tree::pre_order(bin_node* n)
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//gets called when a contact is added
 void Bin_Tree::add_node(std::string contact, std::string phone)
 {
 	//find position
