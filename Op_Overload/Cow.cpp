@@ -7,16 +7,20 @@
 
 
 
-
+#include<iostream>
 #include "Cow.h"
 
-Cow::Cow(int s, int l, int ear) : steaks(s), legs(l), e(ear){};
+Cow::Cow(int s, int l, int ear) : steaks(s), legs(l), e(ear){
+	ca = new calf(e);
+	std::cout << "Ears " << ca->ears << std::endl;
+}
 
 Cow::Cow(Cow& c)
 {
-c.e = 12;
-c.legs = legs;
-c.steaks = steaks;
-c.ca = new calf(c.e);
+
+e = 5;
+legs = c.legs;
+steaks = c.steaks;
+ca = new calf(5);
 
 }

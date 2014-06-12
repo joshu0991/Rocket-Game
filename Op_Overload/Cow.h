@@ -9,8 +9,9 @@
 #define COW_H_
 
 class calf{
-	int ears;
+
 public:
+	int ears;
 	calf(int e) : ears(e){};
 
 };
@@ -19,10 +20,10 @@ class Cow
 {
 
 	int steaks;
-	int legs;
 	int e;
-	calf* ca = new calf(e);
 public:
+	int legs;
+	calf* ca;
 	Cow(int, int, int);
 	Cow(Cow& c);
 };
