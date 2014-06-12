@@ -26,6 +26,7 @@ public:
 	calf* ca;
 	Cow(int, int, int);
 	Cow(Cow& c);
+	~Cow();
 };
 
 

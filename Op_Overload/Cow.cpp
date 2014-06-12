@@ -22,5 +22,11 @@ e = 5;
 legs = c.legs;
 steaks = c.steaks;
 ca = new calf(5);
-
 }
+
+Cow::~Cow()
+{
+	std::cout << "Deleted Calf with " << ca->ears << " ears" <<std::endl;
+	delete ca;
+}
+
