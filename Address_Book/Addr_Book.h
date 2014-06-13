@@ -31,8 +31,6 @@ public:
 	void email_list(Linked_List_Func *l);
 	bool check_ws(std::string);
 	bool search(Bin_Tree* bt, std::string);
-private:
-	std::string email_addr;
 };
 
 #endif /* ADDR_BOOK_H_ */
