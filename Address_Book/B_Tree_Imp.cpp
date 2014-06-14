@@ -301,6 +301,7 @@ void Bin_Tree::balance_tree(bin_node* n)
 
 void Bin_Tree::delete_leaf(std::string s)
 {
+	char child;
 	bool check;
 	bin_node* del_node = search(s);
 	if(del_node == NULL)
@@ -310,15 +311,45 @@ void Bin_Tree::delete_leaf(std::string s)
 
 	bin_node* a =  find_previous(s);
 	check = check_children(del_node);
-	if(check == true)
+	if(check == true)//has children
 	{
+		child = find_children(del_node);//find where the children are
+		switch (child)
+		{
+		case 'r':
+			//find out if the delte node has children
+			break;
+		case 'l':
+			//find out if delete node has left of right children
+			break;
+		case 'b':
+			//find out if left and right have children.
+		}
+	}
+	else //delete the node it doesn't have children
+	{
+		//set both pointers to null since don't know which side node is on (could find this opted not to)
+		a->left = NULL;
+		a->right = NULL;
+	}
+	//balance_tree(b_root);
+}
 
+char Bin_Tree::find_children(bin_node* n)
+{	char s;
+	if(n->left == NULL && n->right != NULL)
+	{
+		s = 'r';
+	}
+	else if(n->right == NULL && n->right != NULL)
+	{
+		s = 'l';
 	}
 	else
 	{
-
+		s = 'b';
 	}
-	//balance_tree(b_root);
+	return s;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

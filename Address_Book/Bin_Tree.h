@@ -37,6 +37,7 @@ private:
 	int decide_bin_node_num(bin_node*);
 	int decide_string_num(std::string);
 	bin_node* find_previous(std::string);
+	char find_children(bin_node* n)
 };
 
 #endif /* BIN_TREE_H_ */
