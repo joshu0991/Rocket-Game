@@ -301,17 +301,39 @@ void Bin_Tree::balance_tree(bin_node* n)
 
 void Bin_Tree::delete_leaf(std::string s)
 {
+	bool check;
 	bin_node* del_node = search(s);
 	if(del_node == NULL)
 	{
 		std::cout << "Cannot delete from tree: value not found" << std::endl;
 	}
 
-	//bin_node* a =  find_previous(s);
+	bin_node* a =  find_previous(s);
+	check = check_children(del_node);
+	if(check == true)
+	{
+
+	}
+	else
+	{
+
+	}
 	//balance_tree(b_root);
 }
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+bool Bin_Tree::check_children(bin_node* n)
+{
+	bool var = false;
+	if(n->left != NULL && n->right != NULL)
+	{
+		var = true;
+	}
+	return var;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 bin_node* Bin_Tree::find_previous(std::string s)
 {

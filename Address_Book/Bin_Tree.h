@@ -26,6 +26,7 @@ public:
 	bool check_insert(bin_node*);
 	bin_node* search(std::string);
 	void delete_leaf(std::string);
+	bool check_children(bin_node*);
 private:
 	bin_node* b_root;
 	int decide_num(node* l);
