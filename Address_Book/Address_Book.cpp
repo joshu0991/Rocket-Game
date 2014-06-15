@@ -29,7 +29,6 @@ void Addr_Book::add_contact(string contact, string phone, Linked_List_Func *l)
 void Addr_Book::print_list_to_screen(Linked_List_Func *l)
 {
 	l->traverse_List();
-
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

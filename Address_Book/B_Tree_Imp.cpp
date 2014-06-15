@@ -339,7 +339,7 @@ void Bin_Tree::delete_leaf(std::string s)
 			}
 			break;
 		case 'b':
-			//node to be deleted has two children
+
 
 			break;
 		}
