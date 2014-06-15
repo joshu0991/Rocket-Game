@@ -301,6 +301,7 @@ void Bin_Tree::balance_tree(bin_node* n)
 
 void Bin_Tree::delete_leaf(std::string s)
 {
+	char links;
 	char child;
 	bool check;
 	bin_node* del_node = search(s);
@@ -311,19 +312,36 @@ void Bin_Tree::delete_leaf(std::string s)
 
 	bin_node* a =  find_previous(s);
 	check = check_children(del_node);
+	links = find_links(a, del_node);
 	if(check == true)//has children
 	{
 		child = find_children(del_node);//find where the children are
 		switch (child)
 		{
 		case 'r':
-			//find out if the delte node has children
+			if(links == 'l')
+			{
+				a->left = del_node->right;
+			}
+			else if(links == 'r')
+			{
+				a->right = del_node->right;
+			}
 			break;
 		case 'l':
-			//find out if delete node has left of right children
+			if(links == 'l')
+			{
+				a->left = del_node->left;
+			}
+			else if(links == 'r')
+			{
+				a->right = del_node->left;
+			}
 			break;
 		case 'b':
-			//find out if left and right have children.
+			//node to be deleted has two children
+
+			break;
 		}
 	}
 	else //delete the node it doesn't have children
@@ -334,6 +352,24 @@ void Bin_Tree::delete_leaf(std::string s)
 	}
 	//balance_tree(b_root);
 }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+char Bin_Tree::find_links(bin_node* prev, bin_node* del)
+{
+	char var;
+	if(prev->left == del)
+	{
+		var = 'l';
+	}
+	else if(prev->right == del)
+	{
+		var = 'r';
+	}
+	return var;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 char Bin_Tree::find_children(bin_node* n)
 {	char s;
