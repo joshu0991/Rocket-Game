@@ -119,8 +119,15 @@ void Addr_Book::construct_list(Linked_List_Func *l) {
 
 void Addr_Book::build_schedule(Linked_List_Func *l)
 {
+	node* n;
+	int c = 0;
 	int size = calc_size(l);
 	int rand = gen_number(size);
+	while(c < rand)
+	{
+		n = n->next;
+	}
+	l->set_used(true, n);
 	std::cout << "Rand " << rand << " Size " << size << std::endl;
 
 }
