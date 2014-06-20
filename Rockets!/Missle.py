@@ -7,10 +7,12 @@ class Missle:
         self.y = y 
         self.speed = speed
         self.missileImg = pygame.image.load('missile.png')
+        print('missle')
         self.misX = 0
         self.misY = 0
         
     def fireGunOne(self):
+        print('Fire')
         gunOne = (self.x + 17, self.y)
         self.misX = gunOne[0]
         self.misY = gunOne[1]

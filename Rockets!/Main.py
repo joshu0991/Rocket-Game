@@ -28,6 +28,8 @@ missleMap = []
 tracker = 0
 
 def runGame():
+    global missleMap
+    global tracker
     speedUp = False
     x, y = 1, 1
     movX, movY = 0, 0
@@ -62,9 +64,8 @@ def runGame():
                     else:
                         movX = -1
                 elif event.key == (K_q):
-                    global tracker
-                    missleMap[tracker] = Missle.Missle(x, y, 2)
-                    tracker += 1
+                    missleMap.insert(tracker, Missle.Missle(x, y, 2))
+                    tracker+=1
             if event.type == KEYUP:
                 if event.key == (K_UP):
                     movY = 0
@@ -92,7 +93,10 @@ def runGame():
         sec = milli/1000.0
         dm = sec * speed
         x += (movX * dm)
-        y += (movY * dm)  
+        y += (movY * dm)
+        for m in missleMap:
+            m.fireGunOne()
+            screen.blit(m.missileImg, (m.misX, m.misY))
         screen.blit(bg, (0,0))
         screen.blit(rocketImg, (x, y))
         pygame.display.update()
@@ -106,16 +110,12 @@ def msgSuface(text, color):
 
 def makeTextObjs(text, font, color):
     textSurface = font.render(text, True, color)
-    return textSurface, textSurface.get_rect()    
+    return textSurface, textSurface.get_rect()
 
 while True:
         global fpsTime
         global screen
         fpsTime = pygame.time.Clock()
-        for tracker in missleMap:
-            m = missleMap[tracker]
-            m.firGunOne()
-            screen.blit(m.missleImg, (m.misX, m.misY))
         screen = pygame.display.set_mode((displayWidth, displayHeight))
         pygame.display.set_caption('Rockets!')
         runGame()
