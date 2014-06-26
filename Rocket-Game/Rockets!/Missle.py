@@ -6,16 +6,15 @@ class Missle:
         self.x = x
         self.y = y 
         self.speed = speed
+        self.gunOne = (self.x + 17, self.y)
         self.missileImg = pygame.image.load('missile.png')
+        self.rect = self.missileImg.get_rect()
         print('missle')
-        self.misX = 0
-        self.misY = 0
+        self.misX = self.gunOne[0]
+        self.misY = self.gunOne[1]
         
     def fireGunOne(self):
         print('Fire')
-        gunOne = (self.x + 17, self.y)
-        self.misX = gunOne[0]
-        self.misY = gunOne[1]
-        self.misY += self.speed
+        self.misY -= self.speed
         
         

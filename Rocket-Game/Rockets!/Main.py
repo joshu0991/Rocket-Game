@@ -44,26 +44,26 @@ def runGame():
                     speedUp = True
                 if event.key == (K_UP):
                     if speedUp == True:
-                        movY = -3
+                        movY = -4
                     else:
-                        movY = -1
+                        movY = -2
                 elif event.key == (K_DOWN):
                     if speedUp == True:
-                        movY = 3
+                        movY = 4
                     else:
-                        movY = 1
+                        movY = 2
                 elif event.key == (K_RIGHT):
                     if speedUp == True:
-                        movX = 3
+                        movX = 4
                     else:
-                        movX = 1
+                        movX = 2
                 elif event.key == (K_LEFT):
                     if speedUp == True:
-                        movX = -3
+                        movX = -4
                     else:
-                        movX = -1
+                        movX = -2
                 elif event.key == (K_q):
-                    missleMap.insert(tracker, Missle.Missle(x, y, 2))
+                    missleMap.insert(tracker, Missle.Missle(x, y, 7))
                     tracker+=1
             if event.type == KEYUP:
                 if event.key == (K_UP):
@@ -76,6 +76,8 @@ def runGame():
                     movX = 0
                 elif event.key == (K_LEFT):
                     movY = 0
+                elif event.key == (K_q):
+                    pass
         if x >displayWidth - 130:
             movX = 0
             x = displayWidth - 132
@@ -93,10 +95,11 @@ def runGame():
         dm = sec * speed
         x += (movX * dm)
         y += (movY * dm)
+        screen.blit(bg, (0,0))
         for m in missleMap:
             m.fireGunOne()
             screen.blit(m.missileImg, (m.misX, m.misY))
-        screen.blit(bg, (0,0))
+        
         screen.blit(rocketImg, (x, y))
         pygame.display.update()
         
