@@ -6,6 +6,7 @@ import Missle
 pygame.init()
 pygame.key.set_repeat(30, 30)
 
+x, y = 1, 1
 white = (255, 255, 255)
 black = (0, 0, 0)
 bg = pygame.image.load('backDrop.png')
@@ -27,44 +28,44 @@ missleMap = []
 tracker = 0
 
 def runGame():
-    global missleMap
-    global tracker
+    global missleMap, x, y
     speedUp = False
-    x, y = 1, 1
+    shoot = False
     movX, movY = 0, 0
     s = "Score " + str(score)
     while True: 
+        key = pygame.key.get_pressed()
         msgSuface(s, white)
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
+                
             elif event.type == KEYDOWN:
-                if event.key == (K_SPACE):
-                    speedUp = True
-                if event.key == (K_UP):
+                if key[pygame.K_SPACE]: speedUp = True
+                if key[pygame.K_UP]:
                     if speedUp == True:
                         movY = -4
                     else:
                         movY = -2
-                elif event.key == (K_DOWN):
+                if key[pygame.K_DOWN]:
                     if speedUp == True:
                         movY = 4
                     else:
                         movY = 2
-                elif event.key == (K_RIGHT):
+                if key[pygame.K_RIGHT]:
                     if speedUp == True:
                         movX = 4
                     else:
                         movX = 2
-                elif event.key == (K_LEFT):
+                if key[pygame.K_LEFT]:
                     if speedUp == True:
                         movX = -4
                     else:
                         movX = -2
-                elif event.key == (K_q):
-                    missleMap.insert(tracker, Missle.Missle(x, y, 7))
-                    tracker+=1
+                if key[pygame.K_q]: makeMissle('l')
+                if key[pygame.K_w]: makeMissle('r')
+                    
             if event.type == KEYUP:
                 if event.key == (K_UP):
                     movY = 0
@@ -95,14 +96,20 @@ def runGame():
         y += (movY * dm)
         screen.blit(bg, (0,0))
         for m in missleMap:
-            m.fireGunOne()
+            m.fire()
             screen.blit(m.missileImg, (m.misX, m.misY))
         screen.blit(rocketImg, (x, y))
         pygame.display.update()
         
+        
+def makeMissle(side):
+    global x, y, tracker
+    missleMap.insert(tracker, Missle.Missle(x, y, 7, side))
+    tracker+=1
+    
+
 def msgSuface(text, color):
     smallText = pygame.font.Font('freesansbold.ttf', 20)
-    #largeText = pygame.font.Font('freesansbold.ttf', 150)
     titleTextSurf, titleTextRect = makeTextObjs(text, smallText, color)
     titleTextRect.center = (720, 30)
     screen.blit(titleTextSurf, titleTextRect)
