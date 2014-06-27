@@ -33,7 +33,8 @@ def runGame():
     shoot = False
     movX, movY = 0, 0
     s = "Score " + str(score)
-    while True: 
+    while True:
+        playSound("Idle.wav") 
         key = pygame.key.get_pressed()
         msgSuface(s, white)
         for event in pygame.event.get():
@@ -118,9 +119,14 @@ def makeTextObjs(text, font, color):
     textSurface = font.render(text, True, color)
     return textSurface, textSurface.get_rect()
 
+def playSound(fileName):
+    s = pygame.mixer.Sound(fileName)
+    s.play()
+    
 while True:
         global fpsTime
         global screen
+        playSound('ShipTwo.wav')
         fpsTime = pygame.time.Clock()
         screen = pygame.display.set_mode((displayWidth, displayHeight))
         pygame.display.set_caption('Rockets!')
