@@ -9,7 +9,7 @@ pygame.key.set_repeat(30, 30)
 white = (255, 255, 255)
 black = (0, 0, 0)
 bg = pygame.image.load('backDrop.png')
-rocketImg =pygame.image.load('Rocket.png')
+rocketImg =pygame.image.load('RocketShip.gif')
 
 score = 5000000
 fps = 50
@@ -76,8 +76,6 @@ def runGame():
                     movX = 0
                 elif event.key == (K_LEFT):
                     movY = 0
-                elif event.key == (K_q):
-                    pass
         if x >displayWidth - 130:
             movX = 0
             x = displayWidth - 132
@@ -99,7 +97,6 @@ def runGame():
         for m in missleMap:
             m.fireGunOne()
             screen.blit(m.missileImg, (m.misX, m.misY))
-        
         screen.blit(rocketImg, (x, y))
         pygame.display.update()
         
