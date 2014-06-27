@@ -2,11 +2,10 @@ import pygame
 import sys
 from threading import *
 from pygame.locals import*
-import Missle
+import Missle, Rocket
 pygame.init()
 pygame.key.set_repeat(30, 30)
 
-x, y = 1, 1
 white = (255, 255, 255)
 black = (0, 0, 0)
 bg = pygame.image.load('backDrop.png')
@@ -26,17 +25,16 @@ LEFT = 'left'
 
 missleMap = []
 tracker = 0
+rocket = Rocket.Rocket()
 
 def runGame():
-    global missleMap, x, y
+    global missleMap
     speedUp = False
-    shoot = False
     movX, movY = 0, 0
     s = "Score " + str(score)
     while True:
         playSound("Idle.wav") 
         key = pygame.key.get_pressed()
-        msgSuface(s, white)
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
@@ -78,34 +76,34 @@ def runGame():
                     movX = 0
                 elif event.key == (K_LEFT):
                     movY = 0
-        if x >displayWidth - 130:
+        if rocket.x >displayWidth - 130:
             movX = 0
-            x = displayWidth - 132
-        elif x < 1:
+            rocket.x = displayWidth - 132
+        elif rocket.x < 1:
             movX = 0
-            x = 2
-        elif y < 1:
+            rocket.x = 2
+        elif rocket.y < 1:
             movY = 0
-            y = 2
-        elif y > displayHeight - 165:
+            rocket.y = 2
+        elif rocket.y > displayHeight - 165:
             movY = 0
-            y = displayHeight - 167
+            rocket.y = displayHeight - 167
         milli = fpsTime.tick()
         sec = milli/1000.0
         dm = sec * speed
-        x += (movX * dm)
-        y += (movY * dm)
+        rocket.move(dm, movX, movY)
         screen.blit(bg, (0,0))
         for m in missleMap:
             m.fire()
             screen.blit(m.missileImg, (m.misX, m.misY))
-        screen.blit(rocketImg, (x, y))
+        msgSuface(s, white)
+        screen.blit(rocket.rocketImg, (rocket.x, rocket.y))
         pygame.display.update()
         
         
 def makeMissle(side):
     global x, y, tracker
-    missleMap.insert(tracker, Missle.Missle(x, y, 7, side))
+    missleMap.insert(tracker, Missle.Missle(rocket.x, rocket.y, 7, side))
     tracker+=1
     
 
