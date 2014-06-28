@@ -21,6 +21,7 @@ UP = 'up'
 DOWN = 'down'
 RIGHT = 'right'
 LEFT = 'left'
+LEVEL = 1
 
 missleMap = []
 tracker = 0

@@ -21,6 +21,7 @@ class Missle:
     def fire(self):
         self.misY -= self.speed
         
-    def explode(self):
+    #if hit deal damage render cool graphic
+    def explode(self, damage):
         pass
     
