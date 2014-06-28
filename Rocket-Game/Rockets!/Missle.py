@@ -21,4 +21,6 @@ class Missle:
     def fire(self):
         self.misY -= self.speed
         
-        
+    def explode(self):
+        pass
+    

@@ -9,9 +9,8 @@ pygame.key.set_repeat(30, 30)
 white = (255, 255, 255)
 black = (0, 0, 0)
 bg = pygame.image.load('backDrop.png')
-rocketImg =pygame.image.load('RocketShip.gif')
 
-score = 5000000
+score = 0000000
 fps = 50
 displayWidth = 800
 displayHeight = 600
@@ -99,13 +98,21 @@ def runGame():
         msgSuface(s, white)
         screen.blit(rocket.rocketImg, (rocket.x, rocket.y))
         pygame.display.update()
+        destroyMissles()
         
         
 def makeMissle(side):
     global x, y, tracker
-    missleMap.insert(tracker, Missle.Missle(rocket.x, rocket.y, 7, side))
+    missleMap.insert(tracker, Missle.Missle(rocket.x, rocket.y, 16, side))
     tracker+=1
     
+def destroyMissles():
+    global missleMap, tracker
+    for m in missleMap:
+        if m.misY <= 0:
+            missleMap.remove(m)
+        if tracker >= 75:
+            tracker = 0
 
 def msgSuface(text, color):
     smallText = pygame.font.Font('freesansbold.ttf', 20)
