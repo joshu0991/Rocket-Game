@@ -4,8 +4,8 @@ class Rocket:
     
     def __init__(self):
         self.rocketImg =pygame.image.load('RocketShip.gif')
-        self.x = 1
-        self.y = 1
+        self.x = 200
+        self.y = 600
         self.shelds = 100
         self.energy = 100
         

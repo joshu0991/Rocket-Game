@@ -2,7 +2,7 @@ import pygame
 import sys
 from threading import *
 from pygame.locals import*
-import Missle, Rocket
+import Missle, Rocket, Alien
 pygame.init()
 pygame.key.set_repeat(30, 30)
 
@@ -26,6 +26,8 @@ LEVEL = 1
 missleMap = []
 tracker = 0
 rocket = Rocket.Rocket()
+#test Alien
+#alien = Alien.Alien()
 
 def runGame():
     global missleMap
@@ -96,6 +98,8 @@ def runGame():
         for m in missleMap:
             m.fire()
             screen.blit(m.missileImg, (m.misX, m.misY))
+        #Test alien will eventually add many aliens
+        
         msgSuface(s, white)
         screen.blit(rocket.rocketImg, (rocket.x, rocket.y))
         pygame.display.update()
