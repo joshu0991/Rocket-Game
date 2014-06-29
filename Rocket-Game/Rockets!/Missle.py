@@ -1,10 +1,12 @@
 import pygame
 
 
-class Missle:
-    def __init__(self, x, y, speed, side):
+class Missle(pygame.sprite.Sprite):
+    def __init__(self, x, y, speed, side, tracker):
+        pygame.sprite.Sprite.__init__(self)
         self.x = x
-        self.y = y 
+        self.y = y
+        self.tracker = tracker
         self.speed = speed
         self.side = side
         self.missileImg = pygame.image.load('missile.gif')
@@ -22,6 +24,12 @@ class Missle:
         self.misY -= self.speed
         
     #if hit deal damage render cool graphic
-    def explode(self, damage):
+    #XY is the aliens posoition
+    def explode(self, x, y, damage=10):
+        if self.x == x and self.y == y:
+            return ('t', self.tracker)
+        else: return ('f')
+        # if hit return true and use result to update score
         pass
-    
+    def checkHit(self):
+        pass

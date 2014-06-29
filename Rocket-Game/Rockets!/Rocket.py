@@ -1,8 +1,9 @@
 import pygame
 
-class Rocket:
+class Rocket(pygame.sprite.Sprite):
     
     def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
         self.rocketImg =pygame.image.load('RocketShip.gif')
         self.x = 200
         self.y = 600

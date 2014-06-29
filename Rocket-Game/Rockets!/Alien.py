@@ -1,13 +1,15 @@
 import pygame
 
 
-class Alien:
-    def __init__(self, x, y, energy=50, life=50):
-        self.Alien =pygame.image.load('AlienShip.gif')
+class Alien(pygame.sprite.Sprite):
+    def __init__(self, x, y, position, energy=50, life=50):
+        pygame.sprite.Sprite.__init__(self)
+        self.alienImg =pygame.image.load('AlienShip.gif')
         self.energy = energy
         self.life = life
-        self.x = 1
-        self.y = 1
+        self.x = x
+        self.y = y
+        self.position = position #spot in list
         pass
     def move(self, dm, movX, movY, speed = 1):
         pass

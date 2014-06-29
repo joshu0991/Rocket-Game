@@ -10,10 +10,10 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 bg = pygame.image.load('backDrop.png')
 
-score = 0000000
+score = 5000000
 fps = 50
-displayWidth = 800
-displayHeight = 600
+displayWidth = 1200
+displayHeight = 900
 speed = 250
 
 
@@ -24,10 +24,11 @@ LEFT = 'left'
 LEVEL = 1
 
 missleMap = []
+enemyMap = []
 tracker = 0
 rocket = Rocket.Rocket()
 #test Alien
-#alien = Alien.Alien()
+alien = Alien.Alien(250, 30, 0)
 
 def runGame():
     global missleMap
@@ -97,18 +98,20 @@ def runGame():
         screen.blit(bg, (0,0))
         for m in missleMap:
             m.fire()
+            hit = m.explode(alien.x, alien.y)
+            if hit[0] == 't':
+                print("boom" + str(hit[1]))
             screen.blit(m.missileImg, (m.misX, m.misY))
-        #Test alien will eventually add many aliens
-        
         msgSuface(s, white)
         screen.blit(rocket.rocketImg, (rocket.x, rocket.y))
+        screen.blit(alien.alienImg, (alien.x, alien.y))
         pygame.display.update()
         destroyMissles()
         
         
 def makeMissle(side):
     global x, y, tracker
-    missleMap.insert(tracker, Missle.Missle(rocket.x, rocket.y, 16, side))
+    missleMap.insert(tracker, Missle.Missle(rocket.x, rocket.y, 55, side, tracker))
     tracker+=1
     
 def destroyMissles():
@@ -122,7 +125,7 @@ def destroyMissles():
 def msgSuface(text, color):
     smallText = pygame.font.Font('freesansbold.ttf', 20)
     titleTextSurf, titleTextRect = makeTextObjs(text, smallText, color)
-    titleTextRect.center = (720, 30)
+    titleTextRect.center = (displayWidth - 100, 30)
     screen.blit(titleTextSurf, titleTextRect)
 
 def makeTextObjs(text, font, color):
@@ -141,6 +144,5 @@ while True:
         screen = pygame.display.set_mode((displayWidth, displayHeight))
         pygame.display.set_caption('Rockets!')
         runGame()
-#Fix shooting!!!!!
 #Resource for enemy http://stackoverflow.com/questions/16945498/how-can-i-have-multiple-objects-moving-at-once-in-pygame
 #Stopped on video 11 https://www.youtube.com/watch?v=eAkOlzNXu_o&indeqx=11&list=PLQVvvaa0QuDcxG_Cajz1JyTH6eAvka93C
